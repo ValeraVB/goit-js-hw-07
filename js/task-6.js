@@ -21,18 +21,16 @@ function createBoxes() {
 
   clearBoxes();
 
-  const fragment = document.createDocumentFragment();
   let size = 30;
+  let boxesHTML = "";
+
   for (let i = 0; i < amount; i++) {
-    const box = document.createElement("div");
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
-    fragment.appendChild(box);
+    const color = getRandomHexColor();
+    boxesHTML += `<div style="width:${size}px; height:${size}px; background-color:${color}"></div>`;
     size += 10;
   }
 
-  boxesContainer.appendChild(fragment);
+  boxesContainer.innerHTML = boxesHTML;
   input.value = "";
 }
 
